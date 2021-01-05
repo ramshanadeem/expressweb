@@ -1,0 +1,19 @@
+{
+  "name": "expapp",
+  "version": "1.0.0",
+  "description": "Express App",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index",
+    "dev": "nodemon index"
+  },
+  "author": "Ramsha",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "node-index": "0.0.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  }
+}
