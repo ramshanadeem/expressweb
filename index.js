@@ -38,7 +38,7 @@ app.post("/signup", (req, res) => {
     }
     else {
         users.push({ name, email, password, id: users.length + 1 })
-                res.redirect('/signin.html')
+                res.redirect('/signin')
 
     }
 
