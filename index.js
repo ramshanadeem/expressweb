@@ -1,18 +1,18 @@
 const express = require("express");
 const app = express();
-const users1 = require('./Users')
+// const users1 = require('./Users')
 const Path = require('path')
 const bodyParser = require('body-parser')
 const PORT = 4000
 app.use(bodyParser.urlencoded({ extended: true }))
-
+app.use(express.json())
 // app.get("/",(req,res)=> {
 //     res.send("home")
 // })
 
-let users = [{ name: 'ramsha', id: 1, email: 'ram@g.com', password: '123' }]
-
-app.get('/api/users1', (req, res) => {
+//let users = [{ name: 'ramsha', id: 1, email: 'ram@g.com', password: '123' }]
+//ab yh wla kam ek jaga krdia routes may userRouter p
+/* app.get('/api/users1', (req, res) => {
     res.json(users1)
 })
 app.get('/api/users1/:id', (req, res) => {
@@ -20,7 +20,9 @@ app.get('/api/users1/:id', (req, res) => {
     console.log(id)
     let result = users1.filter((item) => item.id == id)
     res.json(result[0])
-})
+}) */
+app.use('/api/users1', require('./Routes/UsersRoutes/Users'))
+
 /* 
 app.get('/', (req, res) => {
     res.sendFile(Path.join(__dirname, 'public', 'Home.html'))
