@@ -50,7 +50,8 @@ app.post("/signup", (req, res) => {
     }
     else {
         users.push({ name, email, password, id: users.length + 1 })
-        res.sendFile(Path.join(__dirname, 'registration', 'signin.html'))
+                res.redirect('/signin')
+
     }
 
 })
