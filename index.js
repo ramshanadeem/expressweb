@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+const users1 = require('./Users')
 const Path = require('path')
 const bodyParser = require('body-parser')
 const PORT = 4000
@@ -10,6 +11,17 @@ app.use(bodyParser.urlencoded({ extended: true }))
 // })
 
 let users = [{ name: 'ramsha', id: 1, email: 'ram@g.com', password: '123' }]
+
+app.get('/api/users1', (req, res) => {
+    res.json(users1)
+})
+app.get('/api/users1/:id', (req, res) => {
+    let id = parseInt(req.params.id)
+    console.log(id)
+    let result = users1.filter((item) => item.id == id)
+    res.json(result[0])
+})
+/* 
 app.get('/', (req, res) => {
     res.sendFile(Path.join(__dirname, 'public', 'Home.html'))
 })
@@ -59,6 +71,7 @@ app.post("/signin", (req, res) => {
         res.redirect('/Home.html')
     }
 })
+ */
 app.listen(process.env.PORT || 3000, function () {
     console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
 });
